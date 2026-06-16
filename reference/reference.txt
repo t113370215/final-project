@@ -1,0 +1,26 @@
+===================================================================================================
+Variables
+===================================================================================================
+Factor 1: Sex_Gender (Categorical: Male, Female)
+
+Factor 2: Exercise_Habit (Categorical: High, Low)
+
+Response Variable: Body_Weight_KG (Continuous: Body weight measured in kilograms)
+
+
+===================================================================================================
+Data Cleaning
+===================================================================================================
+Filtering: Selected columns for Sex, Exercise Habit, and Body Weight.
+
+Missing Values: Removed all rows with null (NaN) values to ensure data integrity.
+
+Data Simulation: Fixed random seed (42) and generated a balanced dataset with a total 
+                 sample size of 1,000 rows (250 rows per group).
+
+Recoding: 
+ * Converted sex codes into standardized string labels ("Male", "Female").
+ * Recoded exercise frequencies into binary categories ("High", "Low").
+
+Output: Saved the final simulation dataset and exported the interaction effect charts.
+===================================================================================================
