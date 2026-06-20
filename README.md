@@ -1,64 +1,81 @@
-# final-project
-## 研究主題:性別與運動習慣對體重的共同影響
 
-本儲存庫包含了完整的資料處理流程、統計分析結果，以及視覺化摘要。本研究旨在探討生物性別與生活型態（運動習慣）如何共同影響一個人的體重。
+# Final Project
 
- 1. 研究問題與變數定義
+## Research Topic: The Joint Effects of Biological Sex and Exercise Habits on Body Weight
 
-### 研究問題
-* **第一階段**：在不考慮生活習慣的情況下，性別是否會對個人的基礎體重產生大方向的顯著差異？
-* **第二階段**：加進運動因素後，運動對男生和女生的體重分別會產生什麼影響？性別與運動習慣兩者加在一起時，是否會對體重產生不同的互相干擾與連帶影響（交互作用）？
-
-### 📋 變數定義
-* **自變數1**：`Sex_Gender`（分類變數：Male、Female）
-* **自變數2**：`Exercise_Habit`（分類變數：`High` 常運動、`Low` 不常運動）
-* **應變數**：`Body_Weight_KG`（連續變數：以公斤為單位的體重數據）
+🎥 **Project Oral Presentation Video Link**: (https://youtu.be/ZVCe3tIpDnU)
 
 ---
 
-## 🛠️ 2. 資料處理與統計方法
+## Project Overview
 
-### 🧼 資料清理與設定
-* **篩選與完整性**：精確篩選出性別、運動習慣與體重等核心分析欄位。清除所有包含缺失值（NaN）的資料列，以確保數據的真實性與完整性。
-* **變數轉碼**：將原本的分類代碼轉換為標準化的英文標籤（`"Male"`、`"Female"` 以及 `"High"`、`"Low"`）。
-* **數據規模**：本專案採用平衡設計，總樣本數為 N = 1,000 筆（四個交叉組別各佔 250 筆資料），以避免因各組人數不均導致的統計力偏差。
-
-### 🔬 統計分析步驟
-1. **雙因子方差分析 (Two-Way ANOVA)**：使用完整數據進行檢定，評估性別、運動習慣，以及兩者交互作用對體重的整體影響。
-2. **簡單主效應 (Simple Main Effects)**：作為進階拆解步驟，將資料集依性別切開，單獨且橫向地對比運動習慣在「男生內部」與「女生內部」所產生的具體衝擊強度。
+This repository contains the complete data processing pipeline, statistical analysis results, and visualization summaries for this research project. The objective of this study is to investigate how biological sex (a physiological variable) and lifestyle choices (exercise habits) jointly interact to influence an individual's body weight.
 
 ---
 
-## 📊 3. 核心統計結果
+## 1. Research Questions and Variable Definitions
 
-### 📉 敘述統計數據摘要
-* **Female (女生) / High (常運動)**：平均體重 = 61.6585 公斤 | 標準差 = 3.3537
-* **Female (女生) / Low (不常運動)**：平均體重 = 63.5307 公斤 | 標準差 = 3.9576
-* **Male (男生) / High (常運動)**：平均體重 = 72.2724 公斤 | 標準差 = 4.4913
-* **Male (男生) / Low (不常運動)**：平均體重 = 76.4879 公斤 | 標準差 = 4.8303
+### Research Questions
 
-### 🏁 簡單主效應跨性別對比方差分析表
-| Subgroup / Source (分析子組與變異來源) | df  | Mean Square  | F  | Sig. |
-| :--- | :---: | :---: | :---: | :---: |
-| **Exercise Effect within Male (男生內部運動影響)** | 1.0 | 2221.3654 | 102.1178 | 5.7911e-22 |
-| *Error within Male (男生組內殘差/誤差)* | 498.0 | 21.7529 | NaN | NaN |
-| **Exercise Effect within Female (女生內部運動影響)**| 1.0 | 438.0772 | 32.5634 | 1.9826e-08 |
-| *Error within Female (女生組內殘差/誤差)* | 498.0 | 13.4530 | NaN | NaN |
+* **Phase I: Baseline Gap (Inherent Differences)** — Does biological sex alone generate a major, statistically significant baseline difference in individual body weight when lifestyle habits are completely excluded?
+* **Phase II: Exercise Intervention & Interaction Matrix** — How does exercise affect the body weight of males and females respectively when introduced into the model? Furthermore, when biological sex and exercise habits are combined, do they create an interdependent interference pattern (Interaction Effect) on body weight?
+
+### Variable Definitions
+
+* **Independent Variable 1 (Sex_Gender)**: Categorical Variable [Male, Female]
+* **Independent Variable 2 (Exercise_Habit)**: Categorical Variable [High (Regularly Exercises), Low (Rarely Exercises)]
+* **Dependent Variable (Body_Weight_KG)**: Continuous Numerical Variable [Body weight data in kilograms (KG)]
 
 ---
 
-## 📢 4. 數據結果解讀
+## 2. Data Processing and Statistical Methodology
 
-### 🔹 第一階段：基本對比（只看男女天生的差別）
-男女生天生的體重原本就有巨大的基本差距。在最初的大方向比較中（完全不考慮有沒有運動時），男生的基準平均體重明顯比女生重很多。
+### Data Cleaning and Preprocessing
 
-### 🔹 第二階段：深入拆解（把運動因素加進來看）
-* **男生這邊的狀況**：有沒有運動對男生來說「差超級多」！有運動習慣的男生，平均體重比不運動的男生足足輕了 **4.22 公斤**（F = 102.12, p < 0.001）。
-* **女生這邊的狀況**：有沒有運動對女生來說「也很有差」！有運動習慣的女生，平均體重也比不運動的女生輕了 **1.87 公斤**（F = 32.56, p < 0.001）。
+* **Filtering and Integrity**: Core analytical fields including sex, exercise habits, and body weight were precisely isolated. All rows containing missing values (NaN) were dropped to ensure data authenticity and complete integrity.
+* **Variable Recoding**: Original categorical codes were transformed and standardized into clear English labels ("Male", "Female", "High", and "Low").
+* **Sample Dimensions**: This project utilizes a strictly balanced design with a total sample size of **N = 1,000** observations (exactly 250 observations per cross-sectional group) to eliminate any statistical power bias caused by unequal group sizes.
 
-### 💡 核心結論（為什麼說兩者會互相干擾？）
-雖然不管是男生還是女生，有運動都能成功讓體重比較輕，但是男生有運動 vs 不運動的差距（少了 4.22 公斤），明顯比女生（少了 1.87 公斤）還要大很多。
+### Statistical Analysis Pipeline
 
-因為運動對男生的體重影響威力明顯比女生更猛烈、更有效，這在統計上直接證明了：**性別與運動習慣兩者加在一起時，會對體重產生奇妙的互相干擾與連帶影響**（也就是交互作用高度顯著，p = 1.1188\text{e-}05）。
+1. **Two-Way Analysis of Variance (Two-Way ANOVA)**: Conducted on the full dataset to evaluate the main effects of biological sex, exercise habits, and the significance of their interaction effect on overall body weight.
+2. **Simple Main Effects**: As an advanced decomposition step, the dataset was stratified by sex to horizontally contrast and isolate the precise impact and strength of exercise habits within the "Male cohort" and the "Female cohort" independently.
 
-🎥 專案口頭報告影片連結：[((https://youtu.be/ZVCe3tIpDnU))]
+---
+
+## 3. Core Statistical Results
+
+### Descriptive Statistics Summary
+
+* **Female / High Exercise**: Mean Weight = 61.6585 kg | Standard Deviation (SD) = 3.3537
+* **Female / Low Exercise**: Mean Weight = 63.5307 kg | Standard Deviation (SD) = 3.9576
+* **Male / High Exercise**: Mean Weight = 72.2724 kg | Standard Deviation (SD) = 4.4913
+* **Male / Low Exercise**: Mean Weight = 76.4879 kg | Standard Deviation (SD) = 4.8303
+
+### Simple Main Effects Cross-Gender Contrast ANOVA Table
+
+| Subgroup / Source | df | Mean Square | F | Sig. (p-value) |
+| --- | --- | --- | --- | --- |
+| **Exercise Effect within Male** | 1.0 | 2221.3654 | 102.1178 | 5.7911e-22 |
+| *Error within Male (Residual)* | 498.0 | 21.7529 | NaN | NaN |
+| **Exercise Effect within Female** | 1.0 | 438.0772 | 32.5634 | 1.9826e-08 |
+| *Error within Female (Residual)* | 498.0 | 13.4530 | NaN | NaN |
+
+---
+
+## 4. Data Interpretation and Insights
+
+### Phase I: Macro Baseline Divergence (Inherent Differences Only)
+
+Biological sex exerts a massive, overriding baseline influence on human body weight. In our initial macro-level comparison (completely excluding exercise habits), the baseline mean weight for the male cohort is naturally and significantly higher than that of the female cohort.
+
+### Phase II: Stratified Deep-Dive (Factoring in Exercise)
+
+* **Insights within the Male Cohort**: Having an exercise habit makes an extraordinary difference for men. Males with a regular exercise routine have an average body weight that is **4.22 kg** lighter than sedentary males (F = 102.12, p < 0.001).
+* **Insights within the Female Cohort**: Exercise is also highly effective for women. Females with a regular exercise routine are, on average, **1.87 kg** lighter than sedentary females (F = 32.56, p < 0.001).
+
+### Core Conclusion: Why Do They Cross-Interfere?
+
+While regular, structured exercise successfully correlates with a lower body weight across both genders, the weight gap between active and sedentary individuals is vastly wider for men (**4.22 kg** reduction) than it is for women (**1.87 kg** reduction).
+
+Because exercise demonstrates a much more aggressive and potent impact on male body mass compared to female body mass, this mathematically proves a highly significant **Interaction Effect** (p = 1.1188e-05). In short, biological sex and lifestyle habits do not operate in isolation; they cross-interfere and compound to scale final body weight outcomes.
