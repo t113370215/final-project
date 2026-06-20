@@ -3,7 +3,13 @@
 
 ## Research Topic: The Joint Effects of Biological Sex and Exercise Habits on Body Weight
 
-🎥 **Project Oral Presentation Video Link**: (https://youtu.be/ZVCe3tIpDnU)
+## Student Information
+Name:游芯睿
+Student ID:113370215
+## Project Repository
+https://github.com/t113370215/final-project
+## Presentation Video
+(https://youtu.be/ZVCe3tIpDnU)
 
 ---
 
